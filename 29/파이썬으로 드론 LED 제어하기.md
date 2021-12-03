@@ -1,5 +1,7 @@
 # 29.파이썬으로 드론 LED 제어하기
 ## LED 계속 색깔 바꾸기
+* random 모듈을 사용합니다.
+* ```random.randint(최소, 최대)```로 최소값과 최대값 사이에 있는 정수를 랜덤으로 고릅니다.
 ```python
 import random
 from time import sleep
@@ -20,6 +22,8 @@ if __name__ == '__main__':
 ```
 
 ## LED 색깔 랜덤으로 바꾸기
+* ```convertByteArrayToString```는 특정 함수들은 타입의 포맷이 정해져 있어서 타입의 형을 변환하는 함수를 사용합니다.
+* 문자열 포매팅을 합니다.
 ```python
 import random
 from time import sleep
@@ -39,4 +43,8 @@ if __name__ == '__main__':
     drone.close()
 ```
 
-* ```convertByteArrayToString```는 특정 함수들은 타입의 포맷이 정해져 있어서 타입의 형을 변환하는 함수를 사용합니다.
+## 버튼을 누르면 LED 색깔 바꾸기
+
+
+##
+
