@@ -8,7 +8,19 @@
 * 주자창의 번호판 인식, 자동차의 불법단속, CCTV등 다양한 서비스로 활용됩니다.
 
 ## OpenCV 관련 패키지 설치하기
+* OpenCV 관련 패키지를 설치합니다.
 * ```pip install opencv-python``` : OpenCV의 메인 모듈을 설치합니다.
 * ```pip install opencv-contrib-python``` : contrib 모듈(래퍼 패키지)을 설치합니다.
-* ```
+* ```pip install numpy``` : 데이터 분석 환경에서 많이 사용되는 행렬 연산을 위한 라이브러리를 설치합니다.
+* ```pip install matplotlib``` : 도표, 차트, 그래프 등을 구현할 수 있도록 해주는 그래픽 라이브러리를 설치합니다.
+* 문제없이 설치가 되었는지 확인합니다.
+```python
+import cv2 as cv
+print(cv.__version__)
+```
+
+
+
+
+
 
