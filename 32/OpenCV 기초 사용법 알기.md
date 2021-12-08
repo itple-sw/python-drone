@@ -19,6 +19,41 @@ import cv2 as cv
 print(cv.__version__)
 ```
 
+## 이미지에서 원하는 것을 인식하기
+* imread(경로)로 이미지를 읽습니다.
+* 경로를 설정할 때 문자열 앞에 r을 붙이면 raw 문자열이 됩니다.
+* raw 문자열은 이스케이프 시퀀스를 그대로 저장할 때 사용합니다.
+* shape로 Y축, X축, 채널을 확인합니다.
+* imshow(제목, 이미지객체)로 이미지를 창으로 보여줍니다.
+* waitKey()는 키보드 입력을 대기하는 함수로 0이면 key 입력이 있을 때까지 계속 기다립니다.
+* destroyAllWindows()으로 화면에 나타난 창을 종료합니다.
+```python
+import cv2 as cv
+img = cv.imread(r'C:\img\codrone.jpg')
+print(img.shape) #shape로 크기를 확인
+cv.imshow('window_title',img)
+cv.waitKey(0)
+cv.destroyAllWindows()
+```
+* 이미지에서 원하는 것을 인식하기 위해서 사진을 gray 스케일로 바꿉니다.
+* cv.cvtColor(이미지객체, cv.COLOR_BGR2GRAY)로 gray 스케일로 바꿉니다.
+```python
+import cv2 as cv
+img = cv.imread(r'C:\img\codrone.jpg')
+print(img.shape)
+img_gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+cv.imshow('window_title',img_gray)
+cv.waitKey(0)
+cv.destroyAllWindows()
+```
+* 
+
+
+
+
+
+
+
 
 
 
