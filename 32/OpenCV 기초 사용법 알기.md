@@ -35,8 +35,8 @@ cv.imshow('window_title',img)
 cv.waitKey(0)
 cv.destroyAllWindows()
 ```
-* 이미지에서 원하는 것을 인식하기 위해서 사진을 gray 스케일로 바꿉니다.
-* cv.cvtColor(이미지객체, cv.COLOR_BGR2GRAY)로 gray 스케일로 바꿉니다.
+* 이미지에서 원하는 것을 인식하기 위해서 사진을 Gray 스케일로 바꿉니다.
+* cv.cvtColor(이미지객체, cv.COLOR_BGR2GRAY)로 Gray 스케일로 바꿉니다.
 ```python
 import cv2 as cv
 img = cv.imread(r'C:\img\codrone.jpg')
@@ -46,16 +46,24 @@ cv.imshow('window_title',img_gray)
 cv.waitKey(0)
 cv.destroyAllWindows()
 ```
-* 
-
-
-
-
-
-
-
-
-
-
-
-
+* cv.imread(경로, 0)으로 Gray 스케일로 읽습니다.
+* cv.matchTemplate(대상, 찾으려는 것, 방식)으로 일치하는 영역을 찾습니다.
+* return되는 값은 Gray 이미지로, 원본의 픽셀이 템플릿 이미지와 유사한 정도를 표현합니다.
+* cv.minMaxLoc(result)는 최소 포인터, 최대 포인터, 최소 지점, 최대 지점을 반환합니다.
+* x, y = minLoc : 인식한 이미지의 x, y값을 저장합니다.
+* h,w = a.shape : shape를 하면 y, x값이 나옵니다. 이것을 h,w에 저장합니다.
+* cv.rectangle(이미지 ,사각형 범위 , 선의 색상(b, g, r), 선 굵기 )로 사각형을 그립니다.
+```python
+import cv2 as cv
+img = cv.imread(r'C:\img\drones.jpg',0)
+a = cv.imread(r'C:\img\codrone.jpg',0)
+b = cv.imread(r'C:\img\drones.jpg')
+result = cv.matchTemplate(img, a, cv.TM_SQDIFF)
+minVal, maxVal, minLoc, maxLoc = cv.minMaxLoc(result)
+x, y = minLoc
+h,w = a.shape
+b = cv.rectangle(b, (x, y), (x + w, y + h), (0,0,255), 2)
+cv.imshow("result", b)
+cv.waitKey(0)
+cv.destroyAllWindows()
+```
