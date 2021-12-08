@@ -16,7 +16,7 @@ while True:
     faces = face_cascade.detectMultiScale(grayframe, 1.1, 3, 0, (30, 30))
     print(faces)
     for (x,y,w,h) in faces:
-        cv.rectangle(frame,(x,y),(x+w,y+h),(0,0,255),3,4,0)
+        cv.rectangle(frame,(x,y),(x+w,y+h),(0,0,255),3)
     cv.imshow("Face", frame)
     key = cv.waitKey(10);
     if key == 27:
