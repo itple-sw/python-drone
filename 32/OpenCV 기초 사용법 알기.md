@@ -29,6 +29,7 @@ print(cv.__version__)
 * destroyAllWindows()으로 화면에 나타난 창을 종료합니다.
 ```python
 import cv2 as cv
+
 img = cv.imread(r'C:\img\codrone.jpg')
 print(img.shape) #shape로 크기 등을 확인
 cv.imshow('window_title',img)
@@ -39,6 +40,7 @@ cv.destroyAllWindows()
 * cv.cvtColor(이미지객체, cv.COLOR_BGR2GRAY)로 Gray 스케일로 바꿉니다.
 ```python
 import cv2 as cv
+
 img = cv.imread(r'C:\img\codrone.jpg')
 print(img.shape)
 img_gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
@@ -55,6 +57,7 @@ cv.destroyAllWindows()
 * cv.rectangle(이미지 ,사각형 범위 , 선의 색상(b, g, r), 선 굵기 )로 사각형을 그립니다.
 ```python
 import cv2 as cv
+
 img = cv.imread(r'C:\img\drones.jpg',0)
 a = cv.imread(r'C:\img\codrone.jpg',0)
 b = cv.imread(r'C:\img\drones.jpg')
