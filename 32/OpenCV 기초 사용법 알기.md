@@ -30,7 +30,7 @@ print(cv.__version__)
 ```python
 import cv2 as cv
 img = cv.imread(r'C:\img\codrone.jpg')
-print(img.shape) #shape로 크기를 확인
+print(img.shape) #shape로 크기 등을 확인
 cv.imshow('window_title',img)
 cv.waitKey(0)
 cv.destroyAllWindows()
