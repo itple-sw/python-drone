@@ -2,6 +2,7 @@
 ## LED 계속 색깔 바꾸기
 * random 모듈을 사용합니다.
 * ```random.randint(최소, 최대)```로 최소값과 최대값 사이에 있는 정수를 랜덤으로 고릅니다.
+* Drone 객체를 만들 때 True를 넣으면 통신 상태 등을 확인할 수 있습니다.
 ```python
 import random
 from time import sleep
