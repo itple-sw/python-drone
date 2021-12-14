@@ -42,3 +42,11 @@ c = tk.Entry(window)
 c.pack()
 window.mainloop()
 ```
+* 버튼에서 padx와 pady로 padding 값을 줄 수 있습니다.
+```python
+b = tk.Button(window, padx=20, pady=20, text="버튼")
+```
+* 버튼에서 width, height로 크기를 지정할 수 있습니다.
+* ```python
+b = tk.Button(window, width=10, heigh=3, text="버튼")
+```
