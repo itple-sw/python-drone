@@ -81,6 +81,9 @@ text.insert(tk.END, "글자를 입력하세요")
 text.pack()
 ```
 * 텍스트객체.get("1.0", tk.END)로 텍스트 위젯에 있는 첫문장부터 끝까지 글자를 가져옵니다.
+* 엔트리객체.get()으로 엔트리 위젯에 잇는 문장을 가져옵니다.
+* 텍스트객체.delete("1.0", tk.END)로 텍스트 위젯에 있는 글자를 지웁니다.
+* 엔트리객체.delete(0, tk.END)로 엔트리 위젯에 있는 글자를 지웁니다.
 ``` python
 def clickButton():
     label.config(text=text.get("1.0", tk.END))
@@ -95,4 +98,3 @@ button.pack()
 label = tk.Label(window, text="입력한 내용")
 label.pack()
 ```
-
