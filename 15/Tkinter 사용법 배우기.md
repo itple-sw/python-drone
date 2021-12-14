@@ -7,15 +7,15 @@
 ## Tkinter 기초 사용법
 * Tkinter 모듈을 가져옵니다.
 * Tkinter 객체를 만듭니다.
-* mainloop()로 정의된 윈도우를 실행합니다.
+* Tk객체.mainloop()로 정의된 윈도우를 실행합니다.
 ```python
 import tkinter as tk
 
 window = tk.Tk()
 window.mainloop()
 ```
-* title('제목') : 윈도우 창의 제목을 정합니다.
-* geometry('가로x세로') : 윈도우 창의 크기를 정합니다.
+* Tk객체.title('제목') : 윈도우 창의 제목을 정합니다.
+* Tk객체.geometry('가로x세로') : 윈도우 창의 크기를 정합니다.
 ```python
 import tkinter as tk
 
@@ -24,4 +24,21 @@ window.title("파이썬")
 window.geometry("900x600")
 window.mainloop()
 ```
+* Tk객체.resizable(False, False)로 창 크기를 변경못하게 설정할 수 있습니다. (X크기, Y크기)순으로 설정합니다.  
+* 라벨, 버튼, 입력 등을 위젯을 추가해서 사용합니다.
+* 위젯 이름을 대문자로 입력합니다.
+* 위젯객체.pack()으로 geometry manager에 등록을 해야 합니다.
+```python
+import tkinter as tk
 
+window = tk.Tk()
+window.title("파이썬")
+window.geometry("900x600")
+a = tk.Label(window, text="라벨")
+a.pack()
+b = tk.Button(window, text="버튼")
+b.pack()
+c = tk.Entry(window)
+c.pack()
+window.mainloop()
+```
