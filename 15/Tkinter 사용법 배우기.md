@@ -74,8 +74,25 @@ button = tk.Button(window, text="버튼", command=clickButton)
 * Text로 만듭니다.
 * width와 height로 크기를 정합니다.
 * 텍스트객체.insert(tk.END, "글자")로 텍스트 위젯에 표시할 글자를 나타낼 수 있습니다.
+* 엔트리객체.insert(0, "글자")로 엔트리 위젯에 표시할 글자를 나타낼 수 있습니다.
 ``` python
 text = tk.Text(window, width=100, height=3)
 text.insert(tk.END, "글자를 입력하세요")
 text.pack()
 ```
+* 텍스트객체.get("1.0", tk.END)로 텍스트 위젯에 있는 첫문장부터 끝까지 글자를 가져옵니다.
+``` python
+def clickButton():
+    label.config(text=text.get("1.0", tk.END))
+
+text = tk.Text(window, width=50, height=3)
+text.insert(tk.END, "글자를 입력하세요")
+text.pack()
+
+button = tk.Button(window, text="버튼", command=clickButton)    
+button.pack()
+
+label = tk.Label(window, text="입력한 내용")
+label.pack()
+```
+
