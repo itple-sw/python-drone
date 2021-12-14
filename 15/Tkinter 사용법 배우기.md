@@ -21,7 +21,7 @@ import tkinter as tk
 
 window = tk.Tk()
 window.title("파이썬")
-window.geometry("900x600")
+window.geometry("300x300")
 window.mainloop()
 ```
 * Tk객체.resizable(False, False)로 창 크기를 변경못하게 설정할 수 있습니다. (X크기, Y크기)순으로 설정합니다.  
@@ -33,7 +33,7 @@ import tkinter as tk
 
 window = tk.Tk()
 window.title("파이썬")
-window.geometry("900x600")
+window.geometry("300x300")
 a = tk.Label(window, text="라벨")
 a.pack()
 b = tk.Button(window, text="버튼")
