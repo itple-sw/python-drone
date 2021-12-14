@@ -34,19 +34,38 @@ import tkinter as tk
 window = tk.Tk()
 window.title("파이썬")
 window.geometry("300x300")
-a = tk.Label(window, text="라벨")
-a.pack()
-b = tk.Button(window, text="버튼")
-b.pack()
-c = tk.Entry(window)
-c.pack()
+label = tk.Label(window, text="라벨")
+label.pack()
+button = tk.Button(window, text="버튼")
+button.pack()
+entry = tk.Entry(window)
+entry.pack()
 window.mainloop()
 ```
 * 버튼에서 padx와 pady로 padding 값을 줄 수 있습니다.
 ```python
-b = tk.Button(window, padx=20, pady=20, text="버튼")
+button = tk.Button(window, padx=20, pady=20, text="버튼")
 ```
 * 버튼에서 width, height로 크기를 지정할 수 있습니다.
 ```python
-b = tk.Button(window, width=10, heigh=3, text="버튼")
+button = tk.Button(window, width=10, heigh=3, text="버튼")
+```
+* 버튼에서 fg로 글자색을, bg로 배경색을 정합니다.
+```python
+button = tk.Button(window, fg="red", bg="yellow", text="버튼")
+```
+* 버튼을 클릭했을 때 실행할 함수를 command에 정합니다.
+* 함수이름을 따옴표 없이 입력합니다.
+```python
+def clickButton():
+    print("버튼을 클릭했습니다")
+
+button = tk.Button(window, text="버튼", command=clickButton)
+```
+* config를 사용해서 위젯의 속성 값을 바꿀 수 있습니다.
+``` python
+def clickButton():
+    button.config(text="클릭했습니다")
+    
+button = tk.Button(window, text="버튼", command=clickButton)
 ```
