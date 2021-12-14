@@ -120,3 +120,11 @@ button2.grid(row=1, column=0)
 button2 = tk.Button(window, text="3")
 button2.grid(row=1, column=1)
 ```
+* sticky=방향으로 크기를 늘릴 수 있습니다.
+* sticky=tk.N+tk.E+tk.W+tk.S와 같이 +를 사용해서 방향을 추가합니다.
+```python
+button1.grid(row=0, column=0, columnspan=2, sticky=tk.N+tk.E+tk.W+tk.S)
+```
+
+### 계산기 모양 만들기
+![image](https://user-images.githubusercontent.com/76088532/145950261-96760e52-9371-408a-b8ec-3377f1da5504.png)
