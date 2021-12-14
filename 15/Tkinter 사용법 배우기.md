@@ -5,6 +5,7 @@
 * 뒷글자 inter는 interface를 의미합니다.
 
 ## Tkinter 기초 사용법
+### 기초 위젯 
 * Tkinter 모듈을 가져옵니다.
 * Tkinter 객체를 만듭니다.
 * Tk객체.mainloop()로 정의된 윈도우를 실행합니다.
@@ -97,4 +98,25 @@ button.pack()
 
 label = tk.Label(window, text="입력한 내용")
 label.pack()
+```
+### grid를 사용해서 위젯 배치하기
+* 위젯.grid(row=값, column=값)로 위젯을 배치합니다.
+* 행와 열의 위치를 정합니다. 0부터 시작합니다.
+```python
+button1 = tk.Button(window, text="1")
+button1.grid(row=0, column=0)
+button2 = tk.Button(window, text="2")
+button2.grid(row=0, column=1)
+button2 = tk.Button(window, text="3")
+button2.grid(row=0, column=2)
+```
+* columnspan과 rowspan으로 몇 칸을 차지할지 정할 수 있습니다.
+* columnspan는 가로방향, rowspan는 세로방향입니다.
+```python
+button1 = tk.Button(window, text="1")
+button1.grid(row=0, column=0, columnspan=2)
+button2 = tk.Button(window, text="2")
+button2.grid(row=1, column=0)
+button2 = tk.Button(window, text="3")
+button2.grid(row=1, column=1)
 ```
