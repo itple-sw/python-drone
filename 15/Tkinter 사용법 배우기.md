@@ -25,7 +25,7 @@ window.geometry("300x300")
 window.mainloop()
 ```
 * Tk객체.resizable(False, False)로 창 크기를 변경못하게 설정할 수 있습니다. (X크기, Y크기)순으로 설정합니다.  
-* 라벨, 버튼, 입력 등을 위젯을 추가해서 사용합니다.
+* 레이블, 버튼, 입력 등을 위젯을 추가해서 사용합니다.
 * 위젯 이름을 대문자로 입력합니다.
 * 위젯객체.pack()으로 geometry manager에 등록을 해야 합니다.
 ```python
@@ -68,4 +68,14 @@ def clickButton():
     button.config(text="클릭했습니다")
     
 button = tk.Button(window, text="버튼", command=clickButton)
+```
+* 글자를 입력하는 텍스트 위젯을 만들 수 있습니다.
+* 엔트리 위젯은 한 줄로만 입력할 수 있고, 텍스트 위젯은 여러 줄로 입력할 수 있습니다.  
+* Text로 만듭니다.
+* width와 height로 크기를 정합니다.
+* 텍스트객체.insert(tk.END, "글자")로 텍스트 위젯에 표시할 글자를 나타낼 수 있습니다.
+``` python
+text = tk.Text(window, width=100, height=3)
+text.insert(tk.END, "글자를 입력하세요")
+text.pack()
 ```
