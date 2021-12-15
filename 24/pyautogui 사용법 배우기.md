@@ -4,6 +4,7 @@
 * ```pip install pyautogui```로 설치합니다. 
 * ```import pyautogui```로 사용합니다.
 * 오류가 나는 경우 ```pyscreeze 폴더 안에 init 파일```을 수정합니다.
+* ```~Lib\site-packages\``` 안에 설치된 모듈을 확인할 수 있습니다.
 * https://github.com/asweigart/pyscreeze/blob/master/pyscreeze/__init__.py
 * 관리자 권한으로 IDLE를 엽니다.
 
