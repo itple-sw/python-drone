@@ -3,8 +3,9 @@
 * 키보드와 마우스를 제어할 수 있는 모듈입니다.
 * ```pip install pyautogui```로 설치합니다. 
 * ```import pyautogui```로 사용합니다.
-* 오류가 나는 경우 ```pip uninstall pyautogui pyscreeze```로 패키지를 지웁니다.
-* ```pip install pyautogui==0.9.35```로 다시 설치합니다.
+* 오류가 나는 경우 ```pyscreeze 폴더 안에 init 파일```을 수정합니다.
+* https://github.com/asweigart/pyscreeze/blob/master/pyscreeze/__init__.py
+* 관리자 권한으로 IDLE를 엽니다.
 
 ## pyautogui 함수 알아보기
 * position() : 마우스의 위치를 알 수 있습니다.
