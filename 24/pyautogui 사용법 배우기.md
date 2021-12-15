@@ -42,6 +42,7 @@ pyautogui.press('enter') #엔터키 누르기
 * moveTo(x, y, duration=움직이는 시간) : 좌표로 원하는 시간만큼 움직입니다.
 ```python
 import pyautogui
+
 pyautogui.hotkey('win', 'r')
 pyautogui.typewrite("mspaint", 0.2)
 pyautogui.press('enter')
