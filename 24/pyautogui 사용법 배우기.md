@@ -21,14 +21,15 @@ import pyautogui
 pyautogui.hotkey('win', 'r') #윈도우+R키로 실행창 띄우기
 ```
 
+* write("내용") : 내용을 씁니다.
 * typewrite("내용", 시간) : 정한 시간만큼 타이핑을 합니다.
 * press("키이름") : 해당 키를 누릅니다.
-* "\t" 또는 "tab" : Tab키
-* "space" : 스페이스키
-* "ctrl" : Ctrl키
-* "alt" : Alt키
-* "shift" : Shift키
-* 화살표키 : "down", "up", "left", "right"
+  * "\t" 또는 "tab" : Tab키
+  * "space" : 스페이스키
+  * "ctrl" : Ctrl키
+  * "alt" : Alt키
+  * "shift" : Shift키
+  * 화살표키 : "down", "up", "left", "right"
 ```python
 import pyautogui
 
