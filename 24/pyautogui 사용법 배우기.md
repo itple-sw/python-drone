@@ -45,7 +45,7 @@ import pyautogui
 pyautogui.hotkey('win', 'r')
 pyautogui.typewrite("mspaint", 0.2)
 pyautogui.press('enter')
-pyautogui.moveTo(500,400,duration=1) #정한 좌표로 움직이기
+pyautogui.moveTo(500, 400, duration=1) #정한 좌표로 움직이기
 ```
 
 * dragTo(x, y, duration=초) : 절대값으로 이동합니다.
