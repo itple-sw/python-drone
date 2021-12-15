@@ -3,7 +3,7 @@
 * 키보드와 마우스를 제어할 수 있는 모듈입니다.
 * ```pip install pyautogui```로 설치합니다. 
 * ```import pyautogui```로 사용합니다.
-* 오류가 나는 경우 ```pip install pyautogui pyscreeze```로 패키지를 지웁니다.
+* 오류가 나는 경우 ```pip uninstall pyautogui pyscreeze```로 패키지를 지웁니다.
 * ```pip install pyautogui==0.9.35```로 다시 설치합니다.
 
 ## pyautogui 함수 알아보기
