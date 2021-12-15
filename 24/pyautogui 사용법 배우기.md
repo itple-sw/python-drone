@@ -63,3 +63,6 @@ pyautogui.moveTo(500, 400, duration=1) #정한 좌표로 움직이기
 
 ## 메모장에 글자 쓰기
 * 메모장은 notepad입니다.
+* pyautogui는 한글 입력이 안 됩니다. 이럴 때는 pyperclip 모듈을 사용합니다.
+* ```pyperclip.copy("한글")```로 복사합니다.
+* ```pyautogui.hotkey("ctrl", "v")```로 붙여넣습니다.
