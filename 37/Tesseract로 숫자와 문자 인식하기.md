@@ -10,7 +10,7 @@
 
 ## Tesseract 사용법
 * pytesseract와 Pillow 모듈을 가져옵니다.
-* PTL는 Pillow 모듈입니다. 여기에서 Image라는 함수를 사용하겠습니다.
+* PTL는 Pillow 모듈입니다. 여기에서 Image 객체를 사용하겠습니다.
 * pytesseract.pytesseract.tesseract_cmd에 Tesseract 프로그램 경로를 지정합니다.
 ```python
 import pytesseract
@@ -18,3 +18,8 @@ from PTL import Image
 
 pytesseract.pytesseract.tesseract_cmd = r"Tesseract 프로그램 경로"
 ```
+
+* ```Image.open("경로")```로 사진을 엽니다.
+* ```pytesseract.image_to_string(이미지)```로 사진 속 글자를 텍스트로 바꿔줍니다.
+* 한국어라면 ```lang="kor"``` 옵션을 입력합니다.
+* ```print()```로 결과를 확인합니다.
