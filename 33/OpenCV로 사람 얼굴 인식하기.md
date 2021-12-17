@@ -1,6 +1,7 @@
 # 33. OpenCV로 사람 얼굴 인식하기
 ## 얼굴을 인식해서 화면에 표시하기
 * https://github.com/opencv/opencv/tree/master/data/haarcascades 에서 데이터를 다운로드 받습니다.
+* key == 27는 ```esc```키를 누른 경우를 말합니다.
 ```python
 import cv2 as cv
 
