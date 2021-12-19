@@ -49,5 +49,60 @@ img = Image.open("english.png")
 result = pytesseract.image_to_string(img)
 print(result.split("\n"))
 ```
+* 인식한 글자를 파일로 저장할 수 있습니다.
+```python
+import pytesseract
+from PIL import Image
 
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+img = Image.open("english.png")
+result = pytesseract.image_to_string(img)
+with open("tesseract.txt", "w") as f:
+    f.write(result)
+```
 ## 글자를 사각형으로 표시하기
+* ```pytesseract.image_to_boxes```로 글자와 좌표를 확인합니다.
+```python
+import pytesseract
+from PIL import Image
+
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+img = Image.open("english.png")
+result = pytesseract.image_to_boxes(img)
+print(result)
+```
+
+* ```splitlines()```로 나눕니다.
+```python
+for boxes in result.splitlines():
+    print(boxes)
+```  
+* boxes에 들어있는 값을 x,y,w,h에 저장합니다.
+```python
+for boxes in result.splitlines():
+    boxes = boxes.split(' ')
+    x,y,w,h = int(boxes[1]), int(boxes[2]), int(boxes[3]), int(boxes[4])
+    print(x, y, w, h)
+```
+* 전체 이미지의 높이와 너비에서 y와 h를 뺀 값으로 사각형을 그립니다.
+* y, h는 아래를 기준으로 값이 정해지기 때문에 빼야 합니다. 
+![image](https://user-images.githubusercontent.com/76088532/146682612-b63eeec4-2eb6-4aa9-87fe-175aae3a23e0.png)
+
+```python
+import cv2 as cv
+import pytesseract
+from PIL import Image
+
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+img = Image.open("english.png")
+result = pytesseract.image_to_boxes(img)
+img = cv.imread("english.png")
+img_h, img_w, channel = img.shape
+
+for boxes in result.splitlines():
+    boxes = boxes.split(' ')
+    x,y,w,h = int(boxes[1]), int(boxes[2]), int(boxes[3]), int(boxes[4])
+    cv.rectangle(img, (x, img_h-y), (w, img_h-h), (0,0,255), 2)
+
+cv.imshow("pytesseract", img)
+```
