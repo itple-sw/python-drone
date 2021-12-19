@@ -109,6 +109,7 @@ cv.imshow("pytesseract", img)
 
 ## 영상에서 글자 인식하기
 * capture.read()로 영상을 읽고 결과가 없다면 continue로 while문에 처음부터 코드를 다시 실행합니다.
+* 그냥 사용하면 글자인식이 느립니다. 빠르게 pytesseract를 처리해야 합니다. 
 ```python
 import cv2 as cv
 import pytesseract
