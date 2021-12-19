@@ -5,8 +5,10 @@
 * Tesseract 프로그램을 다운로드 받습니다.
 * 윈도우는 https://github.com/UB-Mannheim/tesseract/wiki 사이트에 들어가서 운영체제에 맞는 exe 파일을 다운로드 받습니다.
 * 다운로드 받은 파일을 실행합니다.
-* 설치할 때 언어 데이터를 선택해야 합니다. Additional language data에서 Korean을 선택합니다.
-* 한글이 설치가 안 되면 https://github.com/tesseract-ocr/tessdata/blob/main/kor.traineddata 에서 다운로드 받아서 tessdata 폴더에 저장합니다.
+* 설치할 때 언어 데이터를 선택해야 합니다.
+* Additional script data에서 Hangul을 선택합니다.
+* Additional language data에서 Korean을 선택합니다.
+* 한글이 설치가 안 되면 https://github.com/tesseract-ocr/tessdata/ 에서 Hangul과 kor와 관련된 데이터를 다운로드 받아서 tessdata 폴더에 저장합니다.
 * 맥은 https://brew.sh/ 사이트에 들어가서 명령어를 복사해서 homebrew를 설치합니다. 그리고 ```brew install tesseract-lang```으로 설치합니다.  
 * ```pip install pytesseract Pillow```로 pytesseract와 Pillow를 설치합니다.
 
