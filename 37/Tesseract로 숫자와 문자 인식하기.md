@@ -95,14 +95,47 @@ from PIL import Image
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 img = Image.open("english.png")
-result = pytesseract.image_to_boxes(img)
+imgBox = pytesseract.image_to_boxes(img)
 img = cv.imread("english.png")
 img_h, img_w, channel = img.shape
 
-for boxes in result.splitlines():
+for boxes in imgBox.splitlines():
     boxes = boxes.split(' ')
     x,y,w,h = int(boxes[1]), int(boxes[2]), int(boxes[3]), int(boxes[4])
     cv.rectangle(img, (x, img_h-y), (w, img_h-h), (0,0,255), 2)
 
 cv.imshow("pytesseract", img)
+```
+
+## 영상에서 글자 인식하기
+* capture.read()로 영상을 읽고 결과가 없다면 continue로 while문에 처음부터 코드를 다시 실행합니다.
+```python
+import cv2 as cv
+import pytesseract
+from PIL import Image
+
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
+capture = cv.VideoCapture(0)
+font = cv.FONT_HERSHEY_DUPLEX
+
+while True:      
+    ret, frame = capture.read()
+    if not ret:
+        continue
+    frame_h, frame_w, channel = frame.shape
+    x1, y1, w1, h1 = 0, 0, frame_h, frame_w
+    text = pytesseract.image_to_string(frame)
+    imgBox = pytesseract.image_to_boxes(frame)
+    for boxes in imgBox.splitlines():
+        boxes = boxes.split(' ')
+        x,y,w,h = int(boxes[1]), int(boxes[2]), int(boxes[3]), int(boxes[4])
+        cv.rectangle(frame, (x, frame_h-y), (w, frame_h-h), (0,0,255), 2)
+    cv.putText(frame, text, org=(30, 30), fontFace=font, fontScale=0.5, color=(255,0,0), thickness=2)    
+    cv.imshow("pytesseract", frame)
+    if cv.waitKey(1) == 27:
+        break
+
+capture.release()
+cv.destroyAllWindows()
 ```
