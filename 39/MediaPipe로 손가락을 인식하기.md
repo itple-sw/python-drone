@@ -1,4 +1,4 @@
-# 39. 손가락을 인식하기
+# 39. MediaPipe로 손가락을 인식하기
 ## MediaPipe 알아보기
 * MediaPipe를 사용해서 손가락을 인식할 수 있습니다.
 * MediaPipe의 Hands 모델은 손가락과 손의 위치를 알려줍니다.
