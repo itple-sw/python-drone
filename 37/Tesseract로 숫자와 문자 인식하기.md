@@ -12,7 +12,6 @@
 * 맥은 https://brew.sh/ 사이트에 들어가서 명령어를 복사해서 homebrew를 설치합니다. 그리고 ```brew install tesseract-lang```으로 설치합니다.  
 * ```pip install pytesseract Pillow```로 pytesseract와 Pillow를 설치합니다.
 
-
 ## Tesseract 사용법
 * pytesseract와 Pillow 모듈을 가져옵니다.
 * PTL는 Pillow 모듈입니다. 여기에서 Image 객체를 사용하겠습니다.
@@ -108,8 +107,7 @@ cv.imshow("pytesseract", img)
 ```
 
 ## 영상에서 글자 인식하기
-* capture.read()로 영상을 읽고 결과가 없다면 continue로 while문에 처음부터 코드를 다시 실행합니다.
-* 그냥 사용하면 글자인식이 느립니다. 빠르게 pytesseract를 처리해야 합니다. 
+* capture.read()로 영상을 읽고 결과가 없다면 continue로 while문에 처음부터 코드를 다시 실행합니다. 
 ```python
 import cv2 as cv
 import pytesseract
@@ -124,8 +122,7 @@ while True:
     ret, frame = capture.read()
     if not ret:
         continue
-    frame_h, frame_w, channel = frame.shape
-    x1, y1, w1, h1 = 0, 0, frame_h, frame_w
+    frame_h, frame_w, channel = frame.shape      
     text = pytesseract.image_to_string(frame)
     imgBox = pytesseract.image_to_boxes(frame)
     for boxes in imgBox.splitlines():
