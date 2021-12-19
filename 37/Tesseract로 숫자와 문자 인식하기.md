@@ -50,3 +50,4 @@ result = pytesseract.image_to_string(img)
 print(result.split("\n"))
 ```
 
+## 글자를 사각형으로 표시하기
