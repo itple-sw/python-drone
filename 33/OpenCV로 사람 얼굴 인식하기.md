@@ -19,6 +19,18 @@ capture.release()
 cv.destroyAllWindows()
 ```
 
+* 좌우반전하고 Gray 스케일로 영상을 읽을 수 있습니다.
+```python
+while True:
+    ret, frame = capture.read()
+    frame = cv.flip(frame, 1)
+    gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+    cv.imshow("VideoFrame", gray)
+    key = cv.waitKey(10);
+    if key == 27:
+        break
+```
+
 ## 얼굴을 인식해서 화면에 표시하기
 * https://github.com/opencv/opencv/tree/master/data/haarcascades 에서 데이터를 다운로드 받습니다.
 * key == 27는 ```esc```키를 누른 경우를 말합니다.
