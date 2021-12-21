@@ -17,7 +17,7 @@ window.mainloop()
 ```
 * ```title('제목')``` : 윈도우 창의 제목을 정합니다.
 * ```geometry('가로x세로')``` : 윈도우 창의 크기를 정합니다.
-* ```geometry('가로x세로+x좌표+y좌표')``` : 창의 나오는 좌표를 정합니다.
+* ```geometry('가로x세로+x좌표+y좌표')``` : 창의 나오는 좌표를 정합니다. 왼쪽 위를 기준으로 좌푯값을 정합니다. 
 ```python
 import tkinter as tk
 
@@ -29,7 +29,7 @@ window.mainloop()
 * ```resizable(False, False)```로 창 크기를 변경못하게 설정할 수 있습니다. (X크기, Y크기)순으로 설정합니다.  
 * 레이블, 버튼, 입력 등을 위젯을 추가해서 사용합니다.
 * 위젯 이름을 대문자로 입력합니다.
-* ```pack()```으로 geometry manager에 등록을 해야 합니다.
+* ```pack()```으로 geometry manager에 등록을 해야 보입니다.
 ```python
 import tkinter as tk
 
@@ -44,32 +44,44 @@ entry = tk.Entry(window)
 entry.pack()
 window.mainloop()
 ```
-* 버튼에서 padx와 pady로 padding 값을 줄 수 있습니다.
+
+* padx와 pady로 padding 값을 줄 수 있습니다.
 ```python
 button = tk.Button(window, padx=20, pady=20, text="버튼")
 ```
+
 * 버튼에서 width, height로 크기를 지정할 수 있습니다.
 ```python
 button = tk.Button(window, width=10, heigh=3, text="버튼")
 ```
+
 * 버튼에서 fg로 글자색을, bg로 배경색을 정합니다.
 ```python
 button = tk.Button(window, fg="red", bg="yellow", text="버튼")
 ```
+
+* 버튼에 사진을 추가할 수 있습니다. 
+* ```tk.PhotoImage(file="경로")```로 이미지를 가져옵니다. 그리고 image옵션에 이미지 객체를 입력합니다.
+```python
+img = tk.PhotoImage(file="img.png")
+button = tk.Button(window, image=img)
+```
+
 * 버튼을 클릭했을 때 실행할 함수를 command에 정합니다.
 * 함수이름을 따옴표 없이 입력합니다.
 ```python
-def clickButton():
+def click_button():
     print("버튼을 클릭했습니다")
 
-button = tk.Button(window, text="버튼", command=clickButton)
+button = tk.Button(window, text="버튼", command=click_button)
 ```
+
 * ```config```를 사용해서 위젯의 속성 값을 바꿀 수 있습니다.
 ``` python
-def clickButton():
+def click_button():
     button.config(text="클릭했습니다")
     
-button = tk.Button(window, text="버튼", command=clickButton)
+button = tk.Button(window, text="버튼", command=click_button)
 ```
 * 글자를 입력하는 텍스트 위젯을 만들 수 있습니다.
 * 엔트리 위젯은 한 줄로만 입력할 수 있고, 텍스트 위젯은 여러 줄로 입력할 수 있습니다.  
@@ -87,19 +99,58 @@ text.pack()
 * ```텍스트객체.delete("1.0", tk.END)```로 텍스트 위젯에 있는 글자를 지웁니다.
 * ```엔트리객체.delete(0, tk.END)```로 엔트리 위젯에 있는 글자를 지웁니다.
 ``` python
-def clickButton():
+def click_button():
     label.config(text=text.get("1.0", tk.END))
 
 text = tk.Text(window, width=50, height=3)
 text.insert(tk.END, "글자를 입력하세요")
 text.pack()
 
-button = tk.Button(window, text="버튼", command=clickButton)    
+button = tk.Button(window, text="버튼", command=click_button)    
 button.pack()
 
 label = tk.Label(window, text="입력한 내용")
 label.pack()
 ```
+
+* 메시지창을 사용할 수 있습니다.
+* ```import tkinter.messagebox as msgbox```로 가져옵니다.
+* ```msgbox.showinfo("창제목", "메시지")```로 메시지창을 보여줍니다. 
+```python
+import tkinter.messagebox as msgbox
+
+def click_button():
+    msgbox.showinfo("알림", "버튼을 클릭했습니다.")
+```
+
+* 프레임을 사용해서 레이아웃을 정할 수 있습니다.
+* 프레임에 여러 위젯을 넣어서 사용할 수 있습니다. 
+* ```Tk객체.Frame(window, 옵션)```으로 사용합니다.
+* ```relief="solid", bd=값```으로 테두리를 정합니다.
+* 위젯을 만들 때 넣고 싶은 frame 객체를 정합니다.
+```python
+frame1 = tk.Frame(window, relief="solid", bd=1, padx=5, pady=5)
+frame1.pack()
+button1 = tk.Button(frame1, text="frame1")
+button1.pack()
+button2 = tk.Button(frame1, text="frame1")
+button2.pack()
+button3 = tk.Button(frame1, text="frame1")
+button3.pack()
+
+frame2 = tk.Frame(window, relief="solid", bd=1, padx=5, pady=5)
+frame2.pack()
+button4 = tk.Button(frame2, text="frame2")
+button4.pack()
+button5 = tk.Button(frame2, text="frame2")
+button5.pack()
+button6 = tk.Button(frame2, text="frame2")
+button6.pack()
+```
+
+### pack에 옵션 사용하기
+
+
 ### grid를 사용해서 위젯 배치하기
 * ```위젯.grid(row=값, column=값)```로 위젯을 배치합니다.
 * 행와 열의 위치를 정합니다. 0부터 시작합니다.
