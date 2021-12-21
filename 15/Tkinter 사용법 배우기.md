@@ -8,15 +8,16 @@
 ### 기초 위젯 
 * Tkinter 모듈을 가져옵니다.
 * Tkinter 객체를 만듭니다.
-* Tk객체.mainloop()로 정의된 윈도우를 실행합니다.
+* ```mainloop()```로 정의된 윈도우를 실행합니다.
 ```python
 import tkinter as tk
 
 window = tk.Tk()
 window.mainloop()
 ```
-* Tk객체.title('제목') : 윈도우 창의 제목을 정합니다.
-* Tk객체.geometry('가로x세로') : 윈도우 창의 크기를 정합니다.
+* ```title('제목')``` : 윈도우 창의 제목을 정합니다.
+* ```geometry('가로x세로')``` : 윈도우 창의 크기를 정합니다.
+* ```geometry('가로x세로+x좌표+y좌표')``` : 창의 나오는 좌표를 정합니다.
 ```python
 import tkinter as tk
 
@@ -25,10 +26,10 @@ window.title("파이썬")
 window.geometry("300x300")
 window.mainloop()
 ```
-* Tk객체.resizable(False, False)로 창 크기를 변경못하게 설정할 수 있습니다. (X크기, Y크기)순으로 설정합니다.  
+* ```resizable(False, False)```로 창 크기를 변경못하게 설정할 수 있습니다. (X크기, Y크기)순으로 설정합니다.  
 * 레이블, 버튼, 입력 등을 위젯을 추가해서 사용합니다.
 * 위젯 이름을 대문자로 입력합니다.
-* 위젯객체.pack()으로 geometry manager에 등록을 해야 합니다.
+* ```pack()```으로 geometry manager에 등록을 해야 합니다.
 ```python
 import tkinter as tk
 
@@ -63,7 +64,7 @@ def clickButton():
 
 button = tk.Button(window, text="버튼", command=clickButton)
 ```
-* config를 사용해서 위젯의 속성 값을 바꿀 수 있습니다.
+* ```config```를 사용해서 위젯의 속성 값을 바꿀 수 있습니다.
 ``` python
 def clickButton():
     button.config(text="클릭했습니다")
@@ -74,17 +75,17 @@ button = tk.Button(window, text="버튼", command=clickButton)
 * 엔트리 위젯은 한 줄로만 입력할 수 있고, 텍스트 위젯은 여러 줄로 입력할 수 있습니다.  
 * Text로 만듭니다.
 * width와 height로 크기를 정합니다.
-* 텍스트객체.insert(tk.END, "글자")로 텍스트 위젯에 표시할 글자를 나타낼 수 있습니다.
-* 엔트리객체.insert(0, "글자")로 엔트리 위젯에 표시할 글자를 나타낼 수 있습니다.
+* ```텍스트객체.insert(tk.END, "글자")```로 텍스트 위젯에 표시할 글자를 나타낼 수 있습니다.
+* ```엔트리객체.insert(0, "글자")```로 엔트리 위젯에 표시할 글자를 나타낼 수 있습니다.
 ``` python
 text = tk.Text(window, width=100, height=3)
 text.insert(tk.END, "글자를 입력하세요")
 text.pack()
 ```
-* 텍스트객체.get("1.0", tk.END)로 텍스트 위젯에 있는 첫문장부터 끝까지 글자를 가져옵니다.
-* 엔트리객체.get()으로 엔트리 위젯에 잇는 문장을 가져옵니다.
-* 텍스트객체.delete("1.0", tk.END)로 텍스트 위젯에 있는 글자를 지웁니다.
-* 엔트리객체.delete(0, tk.END)로 엔트리 위젯에 있는 글자를 지웁니다.
+* ```텍스트객체.get("1.0", tk.END)```로 텍스트 위젯에 있는 첫문장부터 끝까지 글자를 가져옵니다.
+* ```엔트리객체.get()```으로 엔트리 위젯에 잇는 문장을 가져옵니다.
+* ```텍스트객체.delete("1.0", tk.END)```로 텍스트 위젯에 있는 글자를 지웁니다.
+* ```엔트리객체.delete(0, tk.END)```로 엔트리 위젯에 있는 글자를 지웁니다.
 ``` python
 def clickButton():
     label.config(text=text.get("1.0", tk.END))
@@ -100,7 +101,7 @@ label = tk.Label(window, text="입력한 내용")
 label.pack()
 ```
 ### grid를 사용해서 위젯 배치하기
-* 위젯.grid(row=값, column=값)로 위젯을 배치합니다.
+* ```위젯.grid(row=값, column=값)```로 위젯을 배치합니다.
 * 행와 열의 위치를 정합니다. 0부터 시작합니다.
 ```python
 button1 = tk.Button(window, text="1")
@@ -120,7 +121,7 @@ button2.grid(row=1, column=0)
 button2 = tk.Button(window, text="3")
 button2.grid(row=1, column=1)
 ```
-* sticky=방향으로 크기를 늘릴 수 있습니다.
+* ```sticky=방향```으로 크기를 늘릴 수 있습니다.
 * sticky=tk.N+tk.E+tk.W+tk.S와 같이 +를 사용해서 방향을 추가합니다.
 ```python
 button1.grid(row=0, column=0, columnspan=2, sticky=tk.N+tk.E+tk.W+tk.S)
