@@ -147,6 +147,9 @@ button5.pack()
 button6 = tk.Button(frame2, text="frame2")
 button6.pack()
 ```
+* pack() 옵션에 padx, pady를 설정할 수 있습니다.
+* 위젯 중에 pack() 옵션에 padx, pady를 설정해야 되는 것이 있습니다.
+ 
 
 ### pack에 옵션 사용하기
 * side : 어느 방향에 놓을지 정합니다. left, right, top, buttom과 같이 방향을 입력합니다.
