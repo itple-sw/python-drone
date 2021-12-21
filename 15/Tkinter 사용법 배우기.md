@@ -149,7 +149,15 @@ button6.pack()
 ```
 
 ### pack에 옵션 사용하기
+* side : 어느 방향에 놓을지 정합니다. left, right, top, buttom과 같이 방향을 입력합니다.
+* fill : 어느 방향으로 채울지 정합니다. x, y, both와 같이 입력합니다. ```expand=True```를 입력해서 공간을 채우도록 할 수 있습니다.
+```python
+frame1 = tk.Frame(window, relief="solid", bd=1, padx=5, pady=5)
+frame1.pack(side="left", fill="both", expand=True)
 
+frame2 = tk.Frame(window, relief="solid", bd=1, padx=5, pady=5)
+frame2.pack(side="right", fill="both", expand=True)
+```
 
 ### grid를 사용해서 위젯 배치하기
 * ```위젯.grid(row=값, column=값)```로 위젯을 배치합니다.
