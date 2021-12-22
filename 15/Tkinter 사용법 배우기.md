@@ -189,5 +189,10 @@ button2.grid(row=1, column=1)
 button1.grid(row=0, column=0, columnspan=2, sticky=tk.N+tk.E+tk.W+tk.S)
 ```
 
+* ```sticky="news"```처럼 문자열로 방향을 설정할 수 있습니다.
+```python
+button1.grid(row=0, column=0, columnspan=2, sticky="news")
+```
+
 ### 계산기 모양 만들기
 ![image](https://user-images.githubusercontent.com/76088532/145950261-96760e52-9371-408a-b8ec-3377f1da5504.png)
