@@ -13,10 +13,12 @@ import tkinter as tk
 window = tk.Tk()
 window.title("범위 정하기")
 window.geometry("500x500")
+
 window.rowconfigure(0, weight=2)
 window.rowconfigure(1, weight=1)
 window.columnconfigure(0, weight=2)
 window.columnconfigure(1, weight=1)
+
 frame1 = tk.Frame(window, bg="yellow")
 frame1.grid(row=0, column=0, sticky="news")
 frame2 = tk.Frame(window, bg="red")
