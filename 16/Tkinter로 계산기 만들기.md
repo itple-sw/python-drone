@@ -9,6 +9,7 @@ import tkinter as tk
 
 window = tk.Tk()
 window.title("계산기")
+
 label_result = tk.Label(window, text="0")
 label_result.grid(row=0, column=0, columnspan=5)
 button_1 = tk.Button(window, text="7").grid(row=1, column=0)
@@ -27,5 +28,6 @@ button_13 = tk.Button(window, text="000").grid(row=4, column=0)
 button_14 = tk.Button(window, text="0").grid(row=4, column=1)
 button_15 = tk.Button(window, text=".").grid(row=4, column=2)
 button_16 = tk.Button(window, text="+").grid(row=4, column=3)
+
 window.mainloop()
 ```
