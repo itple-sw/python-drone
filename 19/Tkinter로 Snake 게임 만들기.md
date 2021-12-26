@@ -35,7 +35,7 @@ def game_over():
     pass
 ```
 
-
+## Canvas 만들기
 * Label과 Canvas를 만듭니다.
 * Canvas에서 뱀이 움직입니다.
 ```python
@@ -67,3 +67,9 @@ x = int((screen_width/2) - (window_width/2))
 y = int((screen_height/2) - (window_height/2))
 window.geometry(f"{window_width}x{window_height}+{x}+{y}")
 ```
+
+## 뱀과 먹이 클래스 만들기
+* ```canvas.create_rectangle(x1,y1,x2,y2,fill="색깔")```로 사각형을 그립니다.
+* Canvas에 뱀과 먹이 사각형을 그려서 게임을 만듭니다.
+* 
+
