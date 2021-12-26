@@ -64,3 +64,20 @@ new_game()
 ```
 
 * 글자를 클릭하면 
+```python
+def guess(letter):
+    letter = letter.lower()
+    global number_guesses, word_choice
+    choice_list = list(word_choice)   
+    guesse_word = list(hangman_word.get())
+    if choice_list.count(letter.lower()) > 0:      
+        for i in range(len(choice_list)):
+            if choice_list[i] == letter:
+                guesse_word[i] = letter.upper()
+                print(guesse_word)
+            hangman_word.set("".join(guesse_word))
+    else:
+        number_guesses += 1
+        img_label.config(image=images[number_guesses])
+```
+
