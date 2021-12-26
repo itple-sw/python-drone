@@ -68,7 +68,7 @@ y = int((screen_height/2) - (window_height/2))
 window.geometry(f"{window_width}x{window_height}+{x}+{y}")
 ```
 
-## 뱀과 먹이 클래스 만들기
+## 뱀과 먹이 만들기
 * ```canvas.create_rectangle(x1,y1,x2,y2,fill="색깔")```로 사각형을 그립니다.
 * Canvas에 뱀과 먹이 사각형을 그려서 게임을 만듭니다.
 ```python
@@ -92,8 +92,8 @@ class Snake:
 
 class Food:
     def __init__(self):
-        x = random.randint(0, ((game_width/tile_size)-1) * tile_size)
-        y = random.randint(0, ((game_height/tile_size)-1) * tile_size)
+        x = random.randint(0, (game_width/tile_size)-1) * tile_size
+        y = random.randint(0, (game_height/tile_size)-1) * tile_size
         self.coordinates = [x,y]
         canvas.create_rectangle(x, y, x + tile_size, y + tile_size, fill=food_color, tag="food")
 
@@ -158,4 +158,76 @@ window.bind('<Right>', lambda event : change_direction("right"))
 window.bind('<Up>', lambda event : change_direction("up"))
 window.bind('<Down>', lambda event : change_direction("down"))
 ```
+
+* 먹이를 먹으면 뱀이 점점 커지도록 합니다.
+* 뱀 머리 좌표와 먹이 좌표가 같으면 먹이를 먹은 것입니다. 
+* 뱀 좌표에 새로운 좌표를 추가합니다.
+* 먹이를 태그를 사용해서 지웁니다.
+* 먹이를 먹으면 점수를 더해줍니다.
+```python
+snake.squares.insert(0, square)
+if x == food.coordinates[0] and y == food.coordinates[1]:
+    global score
+    score += 1
+    label.config(text="Score:{0}".format(score))
+    canvas.delete("food")
+    food = Food()
+else:
+    del snake.coordinates[-1]
+    canvas.delete(snake.squares[-1])
+    del snake.squares[-1]
+window.after(speed, next_turn, snake, food)
+```
+
+* 뱀이 자신이나 벽에 닿았는지 확인하는 함수를 만듭니다.
+* 닿았다면 게임이 끝나도록 코딩을 합니다.
+* ```snake.coordinates[1:]```는 머리를 빼고 몸통을 말합니다.
+```python
+def check_collisions(snake):
+    x, y = snake.coordinates[0]
+    if x < 0 or x >= game_width:
+        return True
+    if y < 0 or y > game_height:
+        return True
+    for body_part in snake.coordinates[1:]:
+        if x == body_part[0] and y == body_part[1]:
+            return True
+        
+def game_over():
+    canvas.delete("snake")
+    canvas.delete("food")
+    canvas.create_text(canvas.winfo_width()/2, canvas.winfo_height()/2,
+                       font=("aria", 70), text="GAME OVER", fill="red", tag="gameover")
+
+def next_turn(snake, food):
+    x, y = snake.coordinates[0]
+    if direction == "up":
+        y -= tile_size
+    elif direction == "down":
+        y += tile_size
+    elif direction == "right":
+        x += tile_size
+    elif direction == "left":
+        x -= tile_size
+        
+    snake.coordinates.insert(0,(x,y))
+    square = canvas.create_rectangle(x, y, x + tile_size, y + tile_size, fill=snake_color, tag="snake")
+    snake.squares.insert(0, square)
+    if x == food.coordinates[0] and y == food.coordinates[1]:
+        global score
+        score += 1
+        label.config(text="Score:{0}".format(score))
+        canvas.delete("food")
+        food = Food()
+    else:
+        del snake.coordinates[-1]
+        canvas.delete(snake.squares[-1])
+        del snake.squares[-1]
+    if check_collisions(snake):
+        game_over()
+    else:
+        window.after(speed, next_turn, snake, food)
+```     
+        
+
 
