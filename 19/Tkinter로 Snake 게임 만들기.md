@@ -71,5 +71,34 @@ window.geometry(f"{window_width}x{window_height}+{x}+{y}")
 ## 뱀과 먹이 클래스 만들기
 * ```canvas.create_rectangle(x1,y1,x2,y2,fill="색깔")```로 사각형을 그립니다.
 * Canvas에 뱀과 먹이 사각형을 그려서 게임을 만듭니다.
-* 
+```python
+canvas.create_rectangle(30,30,60,60,fill="red")
+```
+
+* 뱀과 먹이 클래스를 만듭니다.
+```python
+class Snake:
+    def __init__(self):
+        self.body_size = body_parts
+        self.coordinates = []
+        self.squares = []
+        for i in range(body_parts):
+            self.coordinates.append([0,0])
+        for x, y in self.coordinates:
+            sqaure = canvas.create_rectangle(x, y, x + tile_size, y + tile_size, fill=snake_color, tag="snake")
+            self.squares.append(sqaure)
+
+class Food:
+    def __init__(self):
+        x = random.randint(0, ((game_width/tile_size)-1) * tile_size)
+        y = random.randint(0, ((game_height/tile_size)-1) * tile_size)
+        self.coordinates = [x,y]
+        canvas.create_rectangle(x, y, x + tile_size, y + tile_size, fill=food_color, tag="food")
+
+snake = Snake()
+food = Food()
+```
+
+
+
 
