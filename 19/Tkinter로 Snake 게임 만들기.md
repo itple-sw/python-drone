@@ -182,6 +182,7 @@ window.after(speed, next_turn, snake, food)
 * 뱀이 자신이나 벽에 닿았는지 확인하는 함수를 만듭니다.
 * 닿았다면 게임이 끝나도록 코딩을 합니다.
 * ```snake.coordinates[1:]```는 머리를 빼고 몸통을 말합니다.
+* ```canvas.create_text```로 글자를 나타냅니다.
 ```python
 def check_collisions(snake):
     x, y = snake.coordinates[0]
