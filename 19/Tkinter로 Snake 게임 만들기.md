@@ -37,4 +37,33 @@ def game_over():
 
 
 * Label과 Canvas를 만듭니다.
-* 
+* Canvas에서 뱀이 움직입니다.
+```python
+window = tk.Tk()
+window.title("Snake Game")
+window.resizable(False, False)
+
+label = tk.Label(window, text="Score:{0}".format(score), font=("aria", 20))
+label.pack()
+canvas = tk.Canvas(window, bg=background_color, width=game_width, height=game_height)
+canvas.pack()
+
+window.mainloop()
+```
+
+* ```window.update()```로 업데이트를 합니다. 
+* 컴퓨터 화면 가운데에 창이 나오도록 합니다. 
+* winfo_width()와 winfo_height()로 창의 크기를 알 수 있습니다. 
+* winfo_screenwidth()와 winfo_screenheight()로 화면의 크기를 알 수 있습니다.
+* 화면 가운데 좌표에서 창 너비의 반, 창 높이의 반을 뺀 좌표를 이용해서 window.geometry()를 설정합니다.
+* 문자열에 변수를 넣을 때 ```"f"{변수}"```를 사용하면 편리합니다.
+```python
+window.update()
+window_width = window.winfo_width()
+window_height = window.winfo_height()
+screen_width = window.winfo_screenwidth()
+screen_height = window.winfo_screenheight()
+x = int((screen_width/2) - (window_width/2))
+y = int((screen_height/2) - (window_height/2))
+window.geometry(f"{window_width}x{window_height}+{x}+{y}")
+```
