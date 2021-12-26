@@ -25,7 +25,7 @@ class Food:
 def next_turn():
     pass
 
-def change_direction(direction):
+def change_direction():
     pass
 
 def check_collisions():
@@ -76,6 +76,8 @@ canvas.create_rectangle(30,30,60,60,fill="red")
 ```
 
 * 뱀과 먹이 클래스를 만듭니다.
+* 뱀 클래스에 자신의 좌표와 그린 사각형을 저장하는 리스트를 만듭니다.
+* 먹이 클래스에 랜덤한 곳에 먹이 사각형을 그리도록 합니다.
 ```python
 class Snake:
     def __init__(self):
@@ -98,7 +100,62 @@ class Food:
 snake = Snake()
 food = Food()
 ```
+* next_turn 함수를 만듭니다.
+* 방향에 따라서 뱀 머리의 좌표를 다르게 합니다.
+* 새로운 좌표를 insert로 추가합니다.
+* 인덱스 0은 뱀 머리 좌표를 나타냅니다.
+* 그리고 꼬리는 지웁니다.
+* window.after로 speed 시간마다 next_turn 함수를 호출합니다.
+```python
+def next_turn(snake, food):
+    x, y = snake.coordinates[0]
+    if direction == "up":
+        y -= tile_size
+    elif direction == "down":
+        y += tile_size
+    elif direction == "right":
+        x += tile_size
+    elif direction == "left":
+        x -= tile_size
+        
+    snake.coordinates.insert(0,(x,y))
+    square = canvas.create_rectangle(x, y, x + tile_size, y + tile_size, fill=snake_color, tag="snake")
+    snake.squares.insert(0, square)
+    del snake.coordinates[-1]
+    canvas.delete(snake.squares[-1])
+    del snake.squares[-1]
+    window.after(speed, next_turn, snake, food)
 
+snake = Snake()
+food = Food()
+next_turn(snake, food)
+```
 
+* ```window.bind```로 키 입력을 받습니다.
+```python
+window.bind('<Left>', lambda event : print("left"))
+```    
+    
+* 화살표 키를 누르면 방향이 바뀌도록 코딩을 합니다.
+```python
+def change_direction(new_direction):
+    global direction
+    if new_direction == "left":
+        if direction != "right":
+            direction = new_direction
+    elif new_direction == "right":
+        if direction != "left":
+            direction = new_direction
+    elif new_direction == "up":
+        if direction != "down":
+            direction = new_direction
+    elif new_direction == "down":
+        if direction != "up":
+            direction = new_direction        
 
+window.bind('<Left>', lambda event : change_direction("left"))
+window.bind('<Right>', lambda event : change_direction("right"))
+window.bind('<Up>', lambda event : change_direction("up"))
+window.bind('<Down>', lambda event : change_direction("down"))
+```
 
