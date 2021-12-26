@@ -127,12 +127,113 @@ frame3.grid(row=1, column=0, sticky="news")
 window.mainloop()
 ```
 
-## 파일을 찾아서 경로를 표시하기
+## 기본적인 레이아웃을 만들기
+```python
+import tkinter as tk
+from tkinter import filedialog
 
+window = tk.Tk()
+window.title("단어 공부하기")
+
+window.rowconfigure(0, weight=1)
+window.rowconfigure(1, weight=4)
+window.columnconfigure(0, weight=1)
+
+frame_button = tk.Frame(window)
+frame_button.grid(row=0, column=0, sticky="news")
+
+button_write = tk.Button(frame_button, text="단어 입력하기")
+button_write.pack(side="left", padx=5)
+button_quiz = tk.Button(frame_button, text="단어 공부하기")
+button_quiz.pack(side="left", padx=5)
+
+frame_write = tk.Frame(window)
+frame_write.grid(row=1, column=0, sticky="news")
+
+add_button = tk.Button(frame_write, text="파일추가")
+add_button.pack()
+file_label = tk.Label(frame_write, text="파일 없음")
+file_label.pack()
+
+title_label = tk.Label(frame_write, text="단어를 입력하세요")
+title_label.pack(fill="x")
+
+word_frame = tk.Frame(frame_write)
+word_frame.pack(fill="x")
+word_label = tk.Label(word_frame, text="영어단어", width=10)
+word_label.pack(side="left")
+word_entry = tk.Entry(word_frame)
+word_entry.pack(side="left", fill="x", expand=True, padx=10, pady=5)
+
+meaning_frame = tk.Frame(frame_write)
+meaning_frame.pack(fill="x")
+meaning_label = tk.Label(meaning_frame, text="뜻", width=10)
+meaning_label.pack(side="left")
+meaning_entry = tk.Entry(meaning_frame)
+meaning_entry.pack(side="left", fill="x", expand=True, padx=10, pady=5)
+
+button_save = tk.Button(frame_write, text="저장하기")
+button_save.pack()
+
+window.mainloop()
+```
+
+## 파일을 찾아서 경로를 표시하기
+* 파일을 사용하기 위해서 filedialog를 사용합니다.
+* txt 파일을 열 수 있도록 합니다.
+```python
+def add_file():
+    file = filedialog.askopenfilename(title="파일을 선택하세요", filetypes=(("txt files","*.txt"),("all files","*.*")))
+    print(file)
+
+add_button = tk.Button(frame_write, text="파일추가", command=add_file)
+```
+* 파일의 경로를 라벨에 표시해줍니다.
+```python
+ file_label.config(text=file)
+```
 
 ## 영어단어와 뜻을 입력해서 txt 파일로 저장하기
-* 위에 단어 입력할 때 쓰는 버튼과 단어를 공부할 때 쓰는 버튼을 만듭니다.
-* 영어단어와 뜻을 입력할 수 있도록 엔트리를 사용합니다.
+* 저장하기 버튼을 클릭하면 txt 파일에 영어 단어와 뜻을 저장합니다.
+* 위젯의 글자는 ```cget("text")```으로 읽어서 사용할 수 있습니다.
+```python
+def save_file():   
+    with open(file_label.cget("text"), "a") as f:        
+        f.write(word_entry.get())
+        f.write(":")
+        f.write(meaning_entry.get())
+        f.write("\n")
+        
+button_save = tk.Button(frame_write, text="저장하기", command=save_file)      
+```
 
-##
+* 파일경로가 있으면 저장을 합니다.
+* try와 except를 사용합니다.
+```python
+def save_file():
+    try:
+        with open(file_label.cget("text"), "a") as f:        
+            f.write(word_entry.get())
+            f.write(":")
+            f.write(meaning_entry.get())
+            f.write("\n")
+    except:
+        print("파일 경로를 추가하세요")
+```
 
+## 게임 관련 Frame 만들기
+```python
+frame_game= tk.Frame(window)
+frame_game.grid(row=1, column=0, sticky="news")
+```
+* 버튼을 클릭하면 Frame이 바뀌도록 합니다.
+* frame_game에 단어와 관련된 게임을 만듭니다.
+```python
+def open_frame(frame):
+    frame.tkraise()
+    
+button_write = tk.Button(frame_button, text="단어 입력하기", command=lambda:open_frame(frame_write))
+button_write.pack(side="left", padx=5)
+button_quiz = tk.Button(frame_button, text="단어 공부하기", command=lambda:open_frame(frame_game))
+button_quiz.pack(side="left", padx=5)
+```
