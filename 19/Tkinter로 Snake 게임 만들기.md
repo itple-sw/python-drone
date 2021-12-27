@@ -56,7 +56,7 @@ window.mainloop()
 * winfo_width()와 winfo_height()로 창의 크기를 알 수 있습니다. 
 * winfo_screenwidth()와 winfo_screenheight()로 화면의 크기를 알 수 있습니다.
 * 화면 가운데 좌표에서 창 너비의 반, 창 높이의 반을 뺀 좌표를 이용해서 window.geometry()를 설정합니다.
-* 문자열에 변수를 넣을 때 ```"f"{변수}"```를 사용하면 편리합니다.
+* 문자열에 변수를 넣을 때 ```f"{변수}"```를 사용하면 편리합니다.
 ```python
 window.update()
 window_width = window.winfo_width()
