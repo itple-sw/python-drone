@@ -52,7 +52,7 @@ button = tk.Button(window, padx=20, pady=20, text="버튼")
 
 * 버튼에서 width, height로 크기를 지정할 수 있습니다.
 ```python
-button = tk.Button(window, width=10, heigh=3, text="버튼")
+button = tk.Button(window, width=10, height=3, text="버튼")
 ```
 
 * 버튼에서 fg로 글자색을, bg로 배경색을 정합니다.
