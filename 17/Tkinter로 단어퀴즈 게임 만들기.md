@@ -195,7 +195,7 @@ add_button = tk.Button(frame_write, text="파일추가", command=add_file)
 ## 영어단어와 뜻을 입력해서 txt 파일로 저장하기
 * 저장하기 버튼을 클릭하면 txt 파일에 영어 단어와 뜻을 저장합니다.
 * Label의 글자는 ```cget("text")```으로 읽어서 사용할 수 있습니다.
-* Entry 글자는 ```.get())```으로 읽어서 사용할 수 있습니다.
+* Entry 글자는 ```get()```으로 읽어서 사용할 수 있습니다.
 ```python
 def save_file():   
     with open(file_label.cget("text"), "a") as f:        
