@@ -87,6 +87,7 @@ label_result.config(font=font, width=5, height=2)
 * 버튼을 클릭했을 때 어떤 버튼을 클릭했는지 print로 알려주는 함수를 만듭니다.
 * 숫자를 클릭했을 때 숫자라고 알려주는 함수를 만듭니다.
 * 연산자를 클릭했을 때 연산자라로 알려주는 함수를 만듭니다.
+* button.cget('text')으로 버튼의 글자값을 가져옵니다.
 ```python
 def number_click(value):
     print("숫자 :", value)
