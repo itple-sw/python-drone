@@ -26,7 +26,7 @@ window.title("파이썬")
 window.geometry("300x300")
 window.mainloop()
 ```
-* ```resizable(False, False)```로 창 크기를 변경못하게 설정할 수 있습니다. (X크기, Y크기)순으로 설정합니다.  
+* ```resizable(False, False)```로 창 크기를 변경 못하게 설정할 수 있습니다. (X크기, Y크기)순으로 설정합니다.  
 * 레이블, 버튼, 입력 등을 위젯을 추가해서 사용합니다.
 * 위젯 이름을 대문자로 입력합니다.
 * ```pack()```으로 geometry manager에 등록을 해야 보입니다.
