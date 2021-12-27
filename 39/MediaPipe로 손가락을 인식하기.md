@@ -64,7 +64,7 @@ capture.release()
 cv.destroyAllWindows()
 ```
   
-* ```hand_landmarks.landmark[번호].x와 hand_landmarks.landmark[번호].y```로 좌표값을 확인할 수 있습니다.
+* ```hand_landmarks.landmark[번호].x와 hand_landmarks.landmark[번호].y```로 좌푯값을 확인할 수 있습니다.
 * 손가락을 움직여서 값이 어떻게 변하는지 확인합니다. 
 ```python
 if results.multi_hand_landmarks:
