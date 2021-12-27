@@ -1,6 +1,6 @@
 # 17. Tkinter로 단어퀴즈 게임 만들기
 ## columnconfigure와 rowconfigure 설정하기
-* 레이아웃을 설정할 때 행과 열이 너비를 설정할 수 있습니다.
+* 레이아웃을 설정할 때 행과 열이 너비와 높이를 설정할 수 있습니다.
 * columnconfigure은 너비를 정하고 rowconfigure는 높이를 정합니다. weight에 값을 입력해서 정합니다.
 ```python
 container.columnconfigure(index, weight)
@@ -57,7 +57,7 @@ window.mainloop()
 ```
 
 ## 버튼을 클릭해서 Frame 바꾸기
-* columnconfigure와 rowconfigure 설정했다면 pack()과 grid()를 같이 쓸 수 없습니다.
+* pack()과 grid()를 같이 쓸 수 없습니다.
 * ```tkraise()```를 사용해서 Frame을 바꿀 수 있습니다.
 * 위에 버튼 3개가 있습니다.
 * grid()에 같은 좌표를 입력해서 겹치게 합니다. 
@@ -115,7 +115,6 @@ button2 = tk.Button(frame_button, text="frame2", command=lambda:open_frame(frame
 button2.pack(side="left", padx=5)
 button3 = tk.Button(frame_button, text="frame3", command=lambda:open_frame(frame3))
 button3.pack(side="left", padx=5)
-
 
 frame1 = tk.Frame(window, bg="yellow")
 frame1.grid(row=1, column=0, sticky="news")
@@ -188,14 +187,15 @@ def add_file():
 
 add_button = tk.Button(frame_write, text="파일추가", command=add_file)
 ```
-* 파일의 경로를 라벨에 표시해줍니다.
+* 파일의 경로를 label에 표시해줍니다.
 ```python
  file_label.config(text=file)
 ```
 
 ## 영어단어와 뜻을 입력해서 txt 파일로 저장하기
 * 저장하기 버튼을 클릭하면 txt 파일에 영어 단어와 뜻을 저장합니다.
-* 위젯의 글자는 ```cget("text")```으로 읽어서 사용할 수 있습니다.
+* Label의 글자는 ```cget("text")```으로 읽어서 사용할 수 있습니다.
+* Entry 글자는 ```.get())```으로 읽어서 사용할 수 있습니다.
 ```python
 def save_file():   
     with open(file_label.cget("text"), "a") as f:        
