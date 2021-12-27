@@ -51,7 +51,7 @@ button_clear.grid(row=3, column=4, rowspan=2)
 window.mainloop()
 ```
 
-* sticky로 라벨과 버튼의 크기를 키웁니다.
+* sticky로 Label과 Button의 크기를 키웁니다.
 * 위젯을 리스트에 저장해서 for문을 사용해서 코딩하면 편리합니다.
 ```python
 label_result.grid(row=0, column=0, columnspan=5, sticky="news")
