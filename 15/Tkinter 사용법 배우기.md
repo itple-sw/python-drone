@@ -36,7 +36,7 @@ import tkinter as tk
 window = tk.Tk()
 window.title("파이썬")
 window.geometry("300x300")
-label = tk.Label(window, text="라벨")
+label = tk.Label(window, text="레이블")
 label.pack()
 button = tk.Button(window, text="버튼")
 button.pack()
