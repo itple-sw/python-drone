@@ -45,7 +45,7 @@ img_label.grid(row=0, column=0, columnspan=3, padx=10, pady=40)
 img_label.config(image=images[0])
 ```
 
-* 행맨 글자를 나타내는 라벨을 만듭니다.
+* 행맨 글자를 나타내는 Label을 만듭니다.
 * StringVar()로 글자를 나타냅니다.
 * StringVar() 값이 변하면 위젯의 글자도 변합니다. 
 ```python
