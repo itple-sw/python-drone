@@ -127,4 +127,4 @@ tk.Button(window, text="new", command=new_game, width=4, font=("aria", 18)).grid
 ```
 
 * txt 파일을 읽어서 문제를 만들 수 있습니다.
-* [행맨게임만들기](https://github.com/itple-sw/python-drone/blob/main/14/%ED%96%89%EB%A7%A8%20%EA%B2%8C%EC%9E%84%20%EB%A7%8C%EB%93%A4%EA%B8%B0.md)
+* [행맨 게임 만들기](https://github.com/itple-sw/python-drone/blob/main/14/%ED%96%89%EB%A7%A8%20%EA%B2%8C%EC%9E%84%20%EB%A7%8C%EB%93%A4%EA%B8%B0.md)를 참고합니다.
