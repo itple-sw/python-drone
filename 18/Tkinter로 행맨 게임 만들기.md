@@ -61,9 +61,7 @@ word_label.grid(row=0, column=3, columnspan=6, padx=10)
 ```python
 def new_game():
     global number_guesses, answer, your_choice  
-    number_guesses = 0
-    answer = []
-    your_choice = []
+    number_guesses = 0   
     img_label.config(image=images[number_guesses])
     answer = list(random.choice(word_list).upper())
     your_choice = list("-"*len(answer))
