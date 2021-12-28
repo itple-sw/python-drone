@@ -16,7 +16,7 @@ window = tk.Tk()
 
 n = 0
 for c in ascii_uppercase:
-    tk.Button(window, text=c, width=4, font=("aria", 18)).grid(row=1+n//9, column=n%9)
+    tk.Button(window, text=c, width=4, font=("aria", 17)).grid(row=1+n//9, column=n%9)
     n+=1    
 
 window.mainloop()
