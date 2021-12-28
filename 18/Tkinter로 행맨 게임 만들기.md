@@ -4,6 +4,7 @@
 * ascii_uppercase를 사용해서 대문자로 버튼을 만듭니다.
 ```python
 import tkinter as tk
+import random
 from string import ascii_uppercase
 
 word_list = ["apple", "banana", "cat"]
