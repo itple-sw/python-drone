@@ -42,6 +42,8 @@ img_label.config(image=images[0])
 ```
 
 * 행맨 글자를 나타내는 라벨을 만듭니다.
+* StringVar()로 글자를 나타냅니다.
+* StringVar() 값이 변하면 위젯의 글자도 변합니다. 
 ```python
 hangman_word = tk.StringVar()
 word_label = tk.Label(window, textvariable = hangman_word, font=("aria", 30))
