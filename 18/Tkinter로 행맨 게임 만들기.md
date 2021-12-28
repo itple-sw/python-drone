@@ -91,7 +91,7 @@ def guess(letter):
         
 n = 0
 for c in ascii_uppercase:
-    tk.Button(window, text=c, command=lambda letter=c:guess(letter), width=4, font=("aria", 18)).grid(row=1+n//9, column=n%9)
+    tk.Button(window, text=c, command=lambda letter=c:guess(letter), width=4, font=("aria", 17)).grid(row=1+n//9, column=n%9)
     n+=1    
 ```
 
@@ -123,7 +123,7 @@ def guess(letter):
 * 다시 하기 버튼을 클릭하면 게임을 다시 시작합니다.
 * number_guesses를 0으로 초기화합니다.
 ```python
-tk.Button(window, text="new", command=new_game, width=4, font=("aria", 18)).grid(row=1+n//9, column=n%9)
+tk.Button(window, text="new", command=new_game, width=4, font=("aria", 17)).grid(row=1+n//9, column=n%9)
 ```
 
 * txt 파일을 읽어서 문제를 만들 수 있습니다.
