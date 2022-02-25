@@ -11,7 +11,7 @@ capture = cv.VideoCapture(0)
 while True:
     ret, frame = capture.read()
     cv.imshow("VideoFrame", frame)
-    key = cv.waitKey(10);
+    key = cv.waitKey(10)
     if key == ord('s'):
         break
     
@@ -26,7 +26,7 @@ while True:
     frame = cv.flip(frame, 1)
     gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
     cv.imshow("VideoFrame", gray)
-    key = cv.waitKey(10);
+    key = cv.waitKey(10)
     if key == 27:
         break
 ```
@@ -52,7 +52,7 @@ while True:
     for (x,y,w,h) in faces:
         cv.rectangle(frame,(x,y),(x+w,y+h),(0,0,255),3)
     cv.imshow("Face", frame)
-    key = cv.waitKey(10);
+    key = cv.waitKey(10)
     if key == 27:
         break
     
@@ -82,7 +82,7 @@ while True:
         cv.rectangle(frame,(x,y),(x+w,y+h),(0,0,255),3)
         cv.putText(frame, "face", (x, y-10), font, 0.5, (255,0,0))
     cv.imshow("Face", frame)
-    key = cv.waitKey(10);
+    key = cv.waitKey(10)
     if key == 27:
         break
     
@@ -113,7 +113,7 @@ while True:
         cv.rectangle(frame,(x,y),(x+w,y+h),(0,0,255),3)
         cv.putText(frame, "eye", (x, y-10), font, 0.5, (255,0,0))
     cv.imshow("Eyes", frame)
-    key = cv.waitKey(10);
+    key = cv.waitKey(10)
     if key == 27:
         break
     
