@@ -48,7 +48,7 @@ cv.imshow('window_title',img_gray)
 cv.waitKey(0)
 cv.destroyAllWindows()
 ```
-* cv.imread(경로, 0)으로 Gray 스케일로 읽습니다.
+* cv.imread(경로, 0)으로 사진을 Gray 스케일로 읽습니다.
 * cv.matchTemplate(대상, 찾으려는 것, 방식)으로 일치하는 영역을 찾습니다.
 * return되는 값은 Gray 이미지로, 원본의 픽셀이 템플릿 이미지와 유사한 정도를 표현합니다.
 * cv.minMaxLoc(result)는 최소 포인터, 최대 포인터, 최소 지점, 최대 지점을 반환합니다.
