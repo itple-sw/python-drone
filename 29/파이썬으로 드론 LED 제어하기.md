@@ -14,7 +14,7 @@ from e_drone.protocol import *
 if __name__ == '__main__':
     drone = Drone(True, True, True, True, True)
     drone.open("com3")
-    while True:
+    for i in range(5):
         drone.sendLightDefaultColor(LightModeDrone.BodyDimming, 1, 255, 0, 0)
         sleep(2)
         drone.sendLightDefaultColor(LightModeDrone.BodyDimming, 1, 0, 255, 0)
