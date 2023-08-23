@@ -1,6 +1,7 @@
 # 33. OpenCV로 사람 얼굴 인식하기
 ## 카메라로 영상찍기
 * ```cv.VideoCapture(번호)```로 카메라로 영상을 읽습니다.
+* cv.CAP_PROP_FRAME_WIDTH와 cv.CAP_PROP_FRAME_HEIGH로 너비와 높이를 정합니다.
 ```python
 import cv2 as cv
 
