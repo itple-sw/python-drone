@@ -28,7 +28,7 @@ while True:
     gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
     cv.imshow("VideoFrame", gray)
     key = cv.waitKey(10)
-    if key == 27:
+    if key == 27: #27번은 esc키
         break
 ```
 
